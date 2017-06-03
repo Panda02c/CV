@@ -1,0 +1,438 @@
+@charset "utf-8";
+/* CSS Document */
+header{
+	background:rgba(0,0,0,0.5);
+	color:#FFF;}
+#banner{
+	background:transparent;
+	position:relative;
+	}
+
+.wrappage{
+	background:url(../images/banner.jpg);
+	background-attachment:fixed;
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-position:center center;
+	overflow:hidden;}
+#box{
+	display:none;
+	}
+.container{
+	margin:0 auto;
+	max-width:1200px;
+	}
+	
+#banner .inner{
+	width:600px;
+	margin:0 auto;
+	background:transparent;
+	text-align:center;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-left:-300px;
+	transform:translateY(-50%);
+	}
+#banner .inner h1{
+	font-size:4em;
+	letter-spacing:4px;
+	position:absolute;
+	top:40%;
+	left:50%;
+	margin-left:-2em;
+	-webkit-animation: bling 2.5s ease-in-out infinite alternate;
+  	-moz-animation: bling 2.5s ease-in-out infinite alternate;
+	animation: bling 2.5s ease-in-out infinite alternate; 
+	}
+@-webkit-keyframes bling {
+  from {
+    text-shadow: 0 0 10px #1C1C1C,
+               0 0 20px  #F6F6F4,
+               0 0 30px  #F1F3F1,
+               0 0 40px  #CAD2D3,
+               0 0 70px  #CAD2D3,
+               0 0 80px  #B1B1B1,
+               0 0 100px #6B6B6B,
+               0 0 120px #6B6B6B;
+  }
+  to {
+    text-shadow: 0 0 5px #1C1C1C,
+               0 0 10px #2B2B2B,
+               0 0 15px #F6F6F4,
+               0 0 20px #F1F3F1,
+               0 0 35px #CAD2D3,
+               0 0 40px #B1B1B1,
+               0 0 50px #6B6B6B,
+               0 0 75px #6B6B6B;
+  }
+}
+
+#banner .inner .sub-heading{
+	line-height:30px;
+	padding-top:300px;
+	font-size:16px;
+	}
+#banner .inner #more{
+	margin:0 auto;
+	padding-top:30px;
+	width:60px;
+	height:38px;
+	cursor:pointer;}
+#banner .inner #more span{
+		 padding-top:4px;}
+#more span:hover{
+	color:#CAD2D3;}
+
+/*--------------首页分割线----------------*/
+
+#page1,#page2,#page3{
+	background:#FFF;
+	text-align:center;
+	padding:0px 70px;
+	letter-spacing:4px;
+	}
+h2{
+	font-size:40px;
+	padding-top:40px;
+	}
+.hr{
+	width:100%;
+	height:1px;
+	margin:0 auto;
+	}
+
+/*----右侧导航栏------------------------*/	
+#list-group{
+	position:fixed;
+	right:20px;
+	top:30%;
+	display:none;   /*首页隐藏实现*/
+	z-index:102;
+	}
+
+
+#list-group .list-group-item{
+	margin:14px 0px;
+	}
+
+.fa-circle{
+	color:#E5E5E5;
+
+	}
+
+	
+#list-group a:hover{
+	color:#F90;
+	
+	}
+#list-group .current .fa-circle{
+	color:#6a6a6a;
+	-webkit-transform: scale3d(1.2,1.2,0);
+	-webkit-transition: scale3d(1.2,1.2,1);
+	-moz-transition: scale3d(1.2,1.2,1);
+	-o-transition: scale3d(1.2,1.2,1);
+	transform: scale3d(1.2,1.2,1);
+	-webkit-transition: -webkit-transform 0.8s,opacity 0.8s ;
+	-moz-transition: webkit-transform 0.8s,opacity 0.8s ;
+	-o-transition: webkit-transform 0.8s,opacity 0.8s ;
+	transition:transform 0.8s , opacity 0.8s;
+
+	}
+#list-group a.current{
+	color:#F90;}
+
+/*----page1项目经验------------------------*/
+h3{
+	margin:10px 0px;
+	font-size:22px;}
+.project{
+	margin:0px auto;
+	padding-top:20px;
+	padding-bottom:60px;
+	position:relative;
+	}
+.pro-content{
+	width:700px;
+	margin:0 auto;
+	overflow:hidden;
+	position:relative;
+	text-indent:2em;
+	}
+.pro-img{
+	width:80px;
+	height:80px;
+	float:left;
+	position:absolute;
+	top:50%;
+	left:10px;
+	margin-top:-40px;
+
+	}
+.pro-img img{
+	width:80px;
+	height:80}
+.pro-text{
+	text-align:left;
+	width:500px;
+	position:relative;
+	
+	margin:20px auto;
+	}
+.pro-text p{
+	font-size:14px;}
+/*----page2专业技能------------------------*/
+#page2 {
+	background:#F2F2F2;}
+#page2 button{
+	position:relative;
+	padding:6px 16px;
+	background:#FFF;
+	border:0.5px solid #999;
+	color:#333;
+	margin-left:-9px;
+	margin-top:-1px;
+	font-size:18px;}
+#page2 button:hover{
+	background:#CCD1D9;
+	color:#FFF;
+	cursor:pointer;
+	}
+#page2 .btn{
+	padding:20px;}
+
+.adv-cloud li {
+  display: inline-block;
+  margin: 8px 24px;
+  position: relative;
+  top: 10px;
+  text-shadow: 0 2px 4px #ddd; }
+
+
+.blur{
+  text-shadow: 0 1px 8px #aaa;
+  color: transparent;
+  -webkit-animation: none !important;
+  -moz-animation: none !important;
+  -o-animation: none !important;
+  animation: none !important;
+  -webkit-transition: text-shadow 0.8s ease;
+  -moz-transition: text-shadow 0.8s ease;
+  -o-transition: text-shadow 0.8s ease;
+  transition: text-shadow 0.8s ease; }
+
+.highlight {
+    text-shadow: 0 1px 3px #ddd;
+    color: #000; 
+	-webkit-animation: none !important;
+  	-moz-animation: none !important;
+  	-o-animation: none !important;
+  	animation: none !important;}
+@-webkit-keyframes twinkle {
+  0% {
+    color: #2B2B2B; }
+
+  50% {
+    color: #6B6B6B; }
+
+  100% {
+    color: #2B2B2B; } }
+
+
+.skill-visible {
+    -webkit-animation: twinkle 5s infinite;
+    -moz-animation: twinkle 4s infinite;
+    -o-animation: twinkle 4s infinite;
+	animation: twinkle 4s infinite;
+    }
+/*.adv-cloud li:hover {
+    -webkit-transition: transform 0.4s ease-out;
+    -moz-transition: transform 0.4s ease-out;
+    transition: transform 0.4s ease-out; }*/
+
+
+
+
+
+#page2 ul li .web{}
+#page2 ul li .design{}
+#page2 ul li .geo{}
+#page2 ul li .stats{}
+#page2 ul li .web{}
+#page2 ul .lv2{
+	font-size:22px;
+	color:#666;}
+#page2 ul .lv3{
+	font-size:26px;
+	}
+#page2 ul .lv4{
+	font-size:30px;
+	}
+#page2 ul .lv5{
+	font-size:36px;
+	font-weight:bold;}
+.prf-content{
+	padding-bottom:60px;
+	width:60%;
+	margin:0px auto;}
+/*----page3教育背景------------------------*/
+#page3 .stage{
+	width:950px;
+	padding:12px 0px;
+	position:relative;
+	margin:0 auto;
+	}
+#page3 .wrapper .school-logo{
+	/*display:inline-block;*/
+	width:110px;
+	height:110px;
+	position:absolute;
+	margin-left:20px;
+	top:50%;
+	margin-top:-55px;
+	}
+.school-logo img{
+	width:110px;}
+#page3 .wrapper .experice{
+	display:inline-block;
+	width:780px;
+	padding:20px;
+	text-align:left;
+	margin-left:120px;
+	}
+#page3 .wrapper{
+	margin-top:20px;
+	padding-bottom:60px;} 
+.experice p{
+	font-size:14px;
+	padding-bottom:6px;}
+.school-name,.degree{
+	display:inline-block;
+	font-size:18px;
+	font-weight:bold;
+	margin-bottom:10px;}
+.school-name{
+	margin-right:60px;}
+
+
+/*----地图样式------------------------*/
+#location{
+	margin:0 auto;
+	width:80%;
+	height:440px;      /*高度待定*/
+	color:#FFF;
+	}
+#location-left,.location-right{
+	height:360px;
+	}
+#location-left{
+	float:left;
+	width:50%;
+	color:#000;
+	margin:40px;
+	}
+#location .location-right{
+	float:right;
+	width:40%;
+	color:#F1F3F1;
+	}
+
+.mapboxgl-popup {
+        max-width: 300px;
+        font: 12px/20px  Arial, Helvetica, sans-serif;
+}
+.lo-content{
+	margin:0px auto;
+	padding:60px 0px 10px;
+	}
+.lo-site{
+	font-size:18px;}
+.lo-addition{
+	font-size:14px;
+	padding:10px 0px;
+	text-indent:2em;}
+/*---side-info---*/
+#side-info{
+	width:300px;
+	height:540px;
+	top:10%;
+	position: fixed;
+	z-index:666;
+	overflow: hidden;
+	color:#fff;
+	background:rgba(0,0,0,0.5);
+	left:-300px;
+	-webkit-transition:left 0.5s;
+	transition:left 0.5s;}
+#hideinfo{
+	visibility:hidden;
+	position:absolute;
+	left:0px;
+	top:0px;
+	}
+#showinfo,#hideinfo{
+	-webkit-transition:left 0.5s;
+	transition:left 1s;
+}
+.fa-angle-double-right,.fa-angle-double-left{
+	color:rgba(0,0,0,0.5);}
+#side-info img{
+	width:140px;
+	height:140px;
+	border-radius:50%;
+	background:#6B6B6B;
+	margin:20px 80px;
+	}
+
+
+#side-info ul{
+	padding:6px 0px 10px 36px;
+	}
+#side-info ul li p{
+	padding:6px 0px;
+	border-bottom:1px dashed #CAD2D3;
+	width:224px;}
+.side-tg{
+	position:fixed;
+	left:0px;
+	top:330px;
+	cursor:pointer;
+	width:30px;
+	height:40px;
+/*	background:rgba(0,0,0,0.5);*/
+	}
+/*----页脚样式------------------------*/
+footer{
+	background:#000;
+	color:#CAD2D3;
+	text-align:center;
+	}
+footer .hr{
+	background:#666;
+	height:1px;    
+	margin:0px auto;  
+	}
+.share-group{
+	display:block;
+	width:950px;
+	margin:0 auto;
+	}
+.share-group li,
+.share-group a{
+	display:inline-block;
+	padding:14px 10px;
+	font-style:normal;
+	color:#6B6B6B;
+	}
+/*.share-group a{
+	display:inline-block;
+	padding:14px 10px;
+	border:1px solid #3FF;}*/
+.share-group li:hover,a:hover{
+	color:#CAD2D3;
+	}
+.copyright{
+	margin:0 auto;
+	padding:30px 20px;
+	color:#6B6B6B;
+	}
