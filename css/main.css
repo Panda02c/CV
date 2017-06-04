@@ -266,13 +266,19 @@ h3{
 	width:60%;
 	margin:0px auto;}
 /*----page3教育背景------------------------*/
-#page3 .stage{
-	width:950px;
+#page3 .wrapper{
+	margin:0 auto;
+	padding-top:20px;
+	padding-bottom:60px;
+	width:70%;
+	} 
+.stage{
+	margin:0 auto;
 	padding:12px 0px;
 	position:relative;
-	margin:0 auto;
+	width:780px;
 	}
-#page3 .wrapper .school-logo{
+.school-logo{
 	width:110px;
 	height:110px;
 	position:absolute;
@@ -282,16 +288,14 @@ h3{
 	}
 .school-logo img{
 	width:110px;}
-#page3 .wrapper .experice{
+.experice{
 	display:inline-block;
-	width:780px;
+	width:640px;
 	padding:20px;
 	text-align:left;
-	margin-left:120px;
+	margin-left:130px;
 	}
-#page3 .wrapper{
-	margin-top:20px;
-	padding-bottom:60px;} 
+
 .experice p{
 	font-size:14px;
 	padding-bottom:6px;}
