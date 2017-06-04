@@ -1,4 +1,4 @@
-
+	//------------首屏-----------
 	$(function(){
 		var wHeight = $(window).height(); //获取浏览器窗口宽度
 		var wWidth = $(window).width(); //获取浏览器窗口高度
@@ -18,31 +18,31 @@
 	
 	//-------------------点击跳转------------
 	$(function(){
-  var _index=0;
-  $("#list-group a").click(function(){
-   $(this).find("a").addClass("current").siblings().find("a").removeClass("current");
-   _index=$(this).index();
-   //通过拼接字符串获取元素，再取得相对于文档的高度
-   var _top=$("#page"+_index).offset().top;
-   //scrollTop滚动到对应高度
-   $("body,html").animate({scrollTop:_top},500);
-  });
-  var nav=$("#list-group"); //得到导航对象
-  var win=$(window); //得到窗口对象
-  var sc=$(document);//得到document文档对象。
-  win.scroll(function(){
+	  var _index=0;
+	  $("#list-group a").click(function(){
+	  	$(this).find("a").addClass("current").siblings().find("a").removeClass("current");
+	   _index=$(this).index();
+	   
+	  	var _top=$("#page"+_index).offset().top;
+	   
+	  	$("body,html").animate({scrollTop:_top},500);
+	  });
+	  var nav=$("#list-group"); 
+	  var win=$(window); 
+	  var sc=$(document);
+	  win.scroll(function(){
  
-   if(sc.scrollTop()>=600){
-   $("#list-group").show(); 
-   //获取滚动元素对应的索引!!!重难点
-   var index=Math.floor(sc.scrollTop()/600);
- 
-   $("#list-group a").eq(index-1).addClass("current").siblings().find("a").removeClass("current");
-   }else{
-   $("#list-group").hide();
-   }
-  });
- });
+		   if(sc.scrollTop()>=600){
+			   $("#list-group").show(); 
+			   //获取滚动元素对应的索引!!!重难点
+			   var index=Math.floor(sc.scrollTop()/600);
+			 
+			   $("#list-group a").eq(index-1).addClass("current").siblings().find("a").removeClass("current");
+		   }else{
+			   $("#list-group").hide();
+   				}
+	  });
+	 });
 	
 	
 //--------------
@@ -76,7 +76,7 @@ $(document).ready(function () {
                 }
             });
 			
-//--------more点击展开 收起--------			
+	//--------more点击展开 收起--------			
   	$("#more").click(function(){
    	 $("#box").slideToggle(function(){
 		 if($("#more span").hasClass("fa-angle-double-down")){
@@ -95,9 +95,8 @@ $(document).ready(function () {
   		if ($listContainer.length === 0) return;
 
 	  $('#list-group a').each(function() {
-		
+		  
 		var listLink = $('<a>').bind('click', scrollTo);
-	
 		var listItem = $('#list-group a').append(listLink);
 	
 		$listContainer.append(listItem);

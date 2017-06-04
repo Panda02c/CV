@@ -1,7 +1,7 @@
 // JavaScript Document
 mapboxgl.accessToken = 'pk.eyJ1IjoicGFuZGFjYyIsImEiOiJjajJyaXFreGIwMGFqMzJxaWZzeWJhcGE4In0.POm7CcDIKMEFu1tYQdQVog';
 var map = new mapboxgl.Map({
-	container: 'location-left',
+	container:'location-left',
 	style: 'mapbox://styles/mapbox/light-v9',
 	zoom:9.8,
 	center:[116.3692, 39.9625]
@@ -22,11 +22,6 @@ var marker = new mapboxgl.Marker()
   .setLngLat([116.3408, 39.9889]).addTo(map);
   
 
-
-
-
-
- 
 map.on('load', function () {
     // Add a layer showing the places.
     map.addLayer({
@@ -38,7 +33,6 @@ map.on('load', function () {
                 "type": "FeatureCollection",
                 "features": [{
                 				 						 
-				
                     "type": "Feature",
                     "properties": {
                         "description": "<strong>中国地质大学（北京）</strong><p>我在这儿等着你~</p><p>北京市，海淀区，学院路29号</p>",
@@ -62,8 +56,7 @@ map.on('load', function () {
         		}
      
     });
-    // When a click event occurs on a feature in the places layer, open a popup at the
-    // location of the feature, with description HTML from its properties.
+    //位置标注
     map.on('click', 'places', function (e) {
         new mapboxgl.Popup()
             .setLngLat(e.features[0].geometry.coordinates)
@@ -71,12 +64,12 @@ map.on('load', function () {
             .addTo(map);
     });
 
-    // Change the cursor to a pointer when the mouse is over the places layer.
+    
     map.on('mouseenter', 'places', function () {
         map.getCanvas().style.cursor = 'pointer';
     });
 
-    // Change it back to a pointer when it leaves.
+   
     map.on('mouseleave', 'places', function () {
         map.getCanvas().style.cursor = '';
     });

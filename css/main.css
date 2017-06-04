@@ -111,7 +111,6 @@ h2{
 	z-index:102;
 	}
 
-
 #list-group .list-group-item{
 	margin:14px 0px;
 	}
@@ -250,15 +249,6 @@ h3{
     -moz-transition: transform 0.4s ease-out;
     transition: transform 0.4s ease-out; }*/
 
-
-
-
-
-#page2 ul li .web{}
-#page2 ul li .design{}
-#page2 ul li .geo{}
-#page2 ul li .stats{}
-#page2 ul li .web{}
 #page2 ul .lv2{
 	font-size:22px;
 	color:#666;}
@@ -283,7 +273,6 @@ h3{
 	margin:0 auto;
 	}
 #page3 .wrapper .school-logo{
-	/*display:inline-block;*/
 	width:110px;
 	height:110px;
 	position:absolute;
@@ -319,21 +308,24 @@ h3{
 #location{
 	margin:0 auto;
 	width:80%;
-	height:440px;      /*高度待定*/
+	height:440px;     
 	color:#FFF;
+	position:relative;
 	}
 #location-left,.location-right{
-	height:360px;
+	height:310px;
+	position:absolute;
+	top:50%;
+	margin-top:-155px;
 	}
 #location-left{
 	float:left;
 	width:50%;
 	color:#000;
-	margin:40px;
+	margin-left:40px;
 	}
 #location .location-right{
-	float:right;
-	width:40%;
+	margin-left:60%;
 	color:#F1F3F1;
 	}
 
@@ -343,7 +335,7 @@ h3{
 }
 .lo-content{
 	margin:0px auto;
-	padding:60px 0px 10px;
+	padding:10px 0px;
 	}
 .lo-site{
 	font-size:18px;}
@@ -384,7 +376,6 @@ h3{
 	margin:20px 80px;
 	}
 
-
 #side-info ul{
 	padding:6px 0px 10px 36px;
 	}
@@ -399,7 +390,6 @@ h3{
 	cursor:pointer;
 	width:30px;
 	height:40px;
-/*	background:rgba(0,0,0,0.5);*/
 	}
 /*----页脚样式------------------------*/
 footer{
