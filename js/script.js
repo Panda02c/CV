@@ -1,6 +1,6 @@
 	//------------首屏-----------
-	document.onreadystatechange=function(){
-			if(document.readyState=="complete"){
+	banner.onreadystatechange=function(){
+			if(banner.readyState=="complete"){
 				$(".loading").fadeOut();
 			}
 		};
