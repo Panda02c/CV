@@ -1,4 +1,9 @@
 	//------------首屏-----------
+	document.onreadystatechange=function(){
+			if(document.readyState=="complete"){
+				$(".loading").fadeOut();
+			}
+		};
 	$(function(){
 		var wHeight = $(window).height(); //获取浏览器窗口宽度
 		var wWidth = $(window).width(); //获取浏览器窗口高度
@@ -77,18 +82,18 @@ $(document).ready(function () {
             });
 			
 	//--------more点击展开 收起--------			
-  	$("#more").click(function(){
-   	 $("#box").slideToggle(function(){
-		 if($("#more span").hasClass("fa-angle-double-down")){
-			 $("#more span").addClass("fa-angle-double-up");$("#more span").removeClass("fa-angle-double-down");
-			 }
-	     else{
-			 $("#more span").addClass("fa-angle-double-down");$("#more span").removeClass("fa-angle-double-up");	
-			 }
+  	// $("#more").click(function(){
+   // 	 $("#box").slideToggle(function(){
+		 // if($("#more span").hasClass("fa-angle-double-down")){
+			//  $("#more span").addClass("fa-angle-double-up");$("#more span").removeClass("fa-angle-double-down");
+			//  }
+	  //    else{
+			//  $("#more span").addClass("fa-angle-double-down");$("#more span").removeClass("fa-angle-double-up");	
+			//  }
 			
-		 });
+		 // });
 		 
-        });
+   //      });
 
 	
 	var tableOfContents = function($listContainer) {
