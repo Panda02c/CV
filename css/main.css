@@ -1,5 +1,4 @@
 @charset "utf-8";
-/* CSS Document */
 .loading{
 	width: 100%;
 	height: 100%;
@@ -364,6 +363,8 @@ h3{
 	padding-bottom:60px;
 	width:60%;
 	margin:0px auto;}
+.pro-backinfo a:hover{color: #FF9900;}
+.pro-backinfo p{ margin-top: 20px; }
 /*----page3教育背景------------------------*/
 #page3 .wrapper{
 	margin:0 auto;
@@ -380,7 +381,6 @@ h3{
 	width:110px;
 	height:110px;
 	position:absolute;
-	margin-left:10px;
 	top:50%;
 	margin-top:-55px;
 	}
@@ -432,7 +432,7 @@ h3{
 }
 .lo-content{
 	margin:0px auto;
-	padding:10px 0px;
+	padding:10px 10px 10px 0;
 	}
 .lo-site{
 	font-size:18px;}
@@ -502,7 +502,7 @@ footer .hr{
 	}
 .share-group{
 	display:block;
-	width:950px;
+	max-width:900px;
 	margin:0 auto;
 	}
 .share-group li,
@@ -523,5 +523,35 @@ footer .hr{
 	margin:0 auto;
 	padding:30px 20px;
 	color:#6B6B6B;
+	line-height: 30px;
 	}
 	/*自适应设计*/
+ @media only screen and (max-width: 930px) {
+ 	.prf-content { width: 100%; padding-bottom:20px;}
+ 	#location {
+ 		width: 100%;
+		height: 640px;
+ 		}
+ 	#location-left,.location-right{
+ 		width:100%;
+ 		margin:0;
+ 		}
+ 	#location-left{
+		top: 10px;
+ 		}
+  	.location-right{
+ 		position: relative;	
+ 		top: 330px;
+ 		}
+ 	.lo-content{
+ 		position:absolute;
+ 		padding:10 4px;
+ 		background-color: rgba(0,0,0,0.7);
+		margin-left: -60%;
+		margin-right: 60%;
+ 		}
+	.share-group li,.share-groupa,.copyright{padding: 0;}
+ }
+ @media (min-width: 900px) and (max-width: 1280px) {
+	#location {width:100%;}
+ }
