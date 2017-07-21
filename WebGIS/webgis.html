@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>2017宁波山地马拉松赛</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.32.0/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.32.0/mapbox-gl.js'></script>
+    <script src='https://npmcdn.com/@turf/turf@3.5.1/turf.min.js'></script>
+    <style>
+
+	html,body,div,p,h1,h2,h3,h4,h5,h6{margin:0;padding:0;border:0;}
+
+    #map {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    
+    #dashboard {
+        position: absolute;
+        margin: 10px;
+        width: 300px;
+        color: #ffffff;
+    }
+
+    #graph {
+        position: relative;
+        height: 80px;
+        margin-top: 10px;
+        background: url('profile.svg') 100% 100% no-repeat;
+    }
+
+    #playhead {
+        position: absolute;
+        height: 90px;
+        background: rgba(255, 255, 255, 0.8);
+        width: 1px;
+        bottom: 0;
+        left: 0;
+    }
+
+	.title { 
+        margin-left: 46px; 
+        margin-bottom: 6px;
+        font-size: 1.2em;
+        text-shadow: -1px 0px 2px #000,1px 0px 2px #000,0px -1px 2px #000,0px 1px 2px #000; }
+
+	.pad1,.pad2 { 
+		background-color: rgba(0,0,0,0.7); 
+		border-radius: 6px;
+		margin-bottom: 10px; 
+    }
+	.pad1 { padding-top: 10px;}
+    .pad2 { padding: 0 10px; }
+
+	#stats { padding: 10px; font-weight: bold;}
+    #stats span:last-of-type { font-weight: 700; }
+    #stats span:first-of-type, #pace {
+        color: #B3B3B3;
+        margin-right: 2px;
+    }
+
+    .hidden{ display:none; }
+
+    .pad-part { margin:4px 0px; padding-top: 6px}
+    .setting { font-size:12px; line-height:20px; }
+    
+    .rounded-toggle
+     { 
+        display: flex;
+    	margin: 10px 0;
+    	border-radius: 15px;
+    	border:2px solid #3D3D3D;
+    	height: 20px;
+    	vertical-align: middle; 
+        background:rgba(90,90,90,0.5);
+    }
+    .rounded-toggle input[type=radio]:checked + label, .rounded-toggle .active {
+        /*background: #786E82;*/
+        background: rgba(200,200,200,0.7);
+        color: white;
+        border-radius: 10px;
+    }
+    .rounded-toggle input{display: none;}
+    .rounded-toggle > *, .rounded-toggle > *:hover {
+        text-align: center;
+        cursor: pointer;
+        font-weight: 700;
+        color: white;
+    }
+    .half { width: 50%;display: inline-block; }
+    .flex { display: flex; align-items: center;}
+    .flex *{ display: inline-block;}
+    #less,#more{
+        background:#d2d2d2;
+        width: 1.25em;
+        height: 1.25em;
+        border-radius: 0.2em;
+        position: relative;
+        cursor: pointer;
+        margin: 6px 0;
+    }
+    #less:after,#more:after{
+        position: absolute;
+        content: "";
+        width:1em;
+        height:0.25em;
+        border-radius: 0.5em;
+        background-color: #333333;
+        left:0.12em;
+        top: 0.5em;
+    }
+    #more:before{
+        position: absolute;
+        content: "";
+        height:1em;
+        width:0.25em;
+        border-radius: 0.5em;
+        background-color: #333333;
+        top:0.1em;
+        left: 0.5em;
+    }
+    .speed{width: 90%;text-align: center;background:rgba(90,90,90,0.5);border-radius:4px;}
+    .row { 
+        margin:0 auto;
+        width:100%; 
+    	display: block;
+    	text-align: center;
+    	padding:10px 0;
+    }
+    .row a {
+		line-height: 20px;
+        border-radius:4px;
+        border:1px solid #666;
+        cursor:pointer;
+    }
+    .row a,#play,#pause,#reset,.rounded-toggle label{
+        letter-spacing: 4px;
+    }
+    .clearfloat:after{
+        display:block;
+        clear:both;
+        content:"";
+        visibility:hidden;
+        height:0;
+    }
+
+    #play { 
+        border-radius:4px;
+    	border:1px solid rgba(200,200,200,0.7);
+        color: rgba(200,200,200,0.7);
+    	width: 100%;
+    	line-height: 36px;
+        cursor:pointer;
+    	}
+    #play:hover,#pause:hover,#reset:hover{
+        background-color: rgba(200,200,200,0.7);
+        color: #fff; 
+        border-color: rgba(90,90,90,0.5);
+    }
+
+    #pause,#reset { width:40%; }
+    #pause{ float: left; margin-right: 10px;}
+    #reset{ float: right;margin-left: 10px;}
+
+    @media only screen and (max-width: 640px) {
+       
+        #dashboard { margin: 0; width: 100%; }
+        h1 { display: none; }
+        #graph { height: 40px; margin-top: 4px; }
+        .pad1,.pad2 { border-radius:0;margin-bottom:0; }
+        .pad-part { display: inline-block;width: 49%;padding:0;margin:0; }
+        .rounded-toggle{width:60%;margin:0 auto;height: 14px; }
+        .rounded-toggle label { padding: 0; font-weight:500;line-height: 14px; } 
+        .flex { margin-top: 0px; width: 50%; margin:0 auto;}
+        #setpace{ display: inline-block; }
+        #setpace { padding-right: 0; }
+
+        .setting, .pad2 { padding: 0; font-size: 8px;}
+
+        #stats {
+            margin: 0;
+            width: 100%;
+            padding: 2px 10px;
+        }
+        #stats div{
+            font-size: 10px;
+            margin-right: 20px; 
+            max-width: 90px;
+            display: inline-block;
+        }
+        
+        #less,#more { margin:2px auto; }
+        .row{ padding: 1px; font-size: 10px; }
+
+        #play { line-height: 20px; margin-top: 4px;}
+        #pause,#reset{ 
+        	width:50%;
+        	margin:0;
+        	border-radius: 0;
+        	border:none;
+        	background: rgba(0,0,0,0.9);font-size: 10px;
+        }
+
+    }
+    </style>
+
+</head>
+
+<body>
+    
+    <div id='map'></div>
+
+    <section id='dashboard'>
+        <h1 class='title'>2017 宁波山地马拉松赛</h1>
+        <div class='pad1'>
+            <div id='graph'>
+                <div id='playhead'></div>
+            </div>
+            <div id='stats' class='setting'>
+                <div>
+                    <span>高 程 ：</span>
+                    <span id='elevation'></span>
+                </div>
+                <div>
+                    <span>距 离 ：</span>
+                    <span id='distance'></span>
+                </div>
+                <div>
+                    <span>时 间 ：</span>
+                    <span id='time'></span>
+                </div>
+
+            </div>
+        </div>
+        <div class='pad2'>
+            <!-- <div class='clearfix'> -->
+                <div class='pad-part'>
+                    <h2 class='setting'>设置观看角度</h2>
+                    <div class='rounded-toggle setting'>
+                        <input id='three' type='radio' name='rtoggle' checked='checked'>
+                        <label for='three' class='half'>跟随</label>
+                        <input id='two' type='radio' name='rtoggle'>
+                        <label for='two' class='half'>总览</label>               
+                    </div>
+                </div>
+                <div id='setpace' class='pad-part'>
+                    <h2 class='setting'>设置步速</h2>
+                    <div class='flex'>
+                   
+                        <a id='less'></a>
+                        <div class='speed'>
+                            <h3 id='pace'></h3>
+                            <span> min / km</span>
+                        </div>
+                        <a id='more'></a>
+                    </div>
+
+                </div>
+            <!-- </div>clearfix -->
+            <div class='row'>
+                <div id='play'>比赛开始</div>
+                <div class='clearfloat'>
+                    <a id='pause' class='hidden setting'>停止</a>
+                    <a id='reset' class='hidden setting'>重置</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src='gis.js'></script>
+</body>
+
+</html>
