@@ -364,7 +364,7 @@ h3{
 	width:60%;
 	margin:0px auto;}
 .pro-backinfo a:hover{color: #FF9900;}
-.pro-backinfo p{ margin-top: 20px; }
+.pro-backinfo p{ padding-top: 10px; }
 /*----page3教育背景------------------------*/
 #page3 .wrapper{
 	margin:0 auto;
@@ -527,6 +527,17 @@ footer .hr{
 	}
 	/*自适应设计*/
  @media only screen and (max-width: 930px) {
+ 	#page1,#page2,#page3{
+ 		padding:0px 10px;
+ 		}
+ 	h2{
+ 		font-size:20px;
+ 		padding-top:20px;
+ 		}
+ 	h3{
+	margin:10px 0px;
+	font-size:18px;}
+	p{ font-size:12px; }
  	.prf-content { width: 100%; padding-bottom:20px;}
  	#location {
  		width: 100%;
