@@ -439,6 +439,7 @@ h3{
 	font-size:14px;
 	padding:10px 0px;
 	text-indent:2em;}
+.lo-addition a{ display: inline; }
 /*---side-info---*/
 #side-info{
 	width:300px;
