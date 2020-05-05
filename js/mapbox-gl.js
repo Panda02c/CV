@@ -3,8 +3,9 @@ mapboxgl.accessToken = 'pk.eyJ1IjoicGFuZGFjYyIsImEiOiJjajJyaXFreGIwMGFqMzJxaWZze
 var map = new mapboxgl.Map({
 	container:'location-left',
 	style: 'mapbox://styles/mapbox/light-v9',
+	//style: 'mapbox://styles/pandacc/ck9ttbbas0t0i1inxry9nk0qg',
 	zoom:9.8,
-	center:[116.3692, 39.9625]
+	center:[116.3694, 39.9125]
 });
 
 var nav=new mapboxgl.NavigationControl();
@@ -21,12 +22,12 @@ var address={
                 "features": [{                             
                     "type": "Feature",
                     "properties": {
-                        "description": "<strong>中国地质大学（北京）</strong><p>我在这儿等着你~</p><p>北京市，海淀区，学院路29号</p>",
+                        "description": "<strong>中国地图出版社</strong><p>我在这儿等着你~</p><p>北京市，西城区，三里河路50号</p>",
                         "icon": "star"
                     },
                     "geometry": {
                         "type": "Point",
-                        "coordinates": [116.3408, 39.9885]
+                        "coordinates": [116.34225,39.917788]
                     }
             }]
 
